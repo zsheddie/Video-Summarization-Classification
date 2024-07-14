@@ -19,7 +19,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.optim import Adam
-import torch.optim as optim
+import torch.optim as opti
 from torchvision import models, transforms
 from sklearn.cluster import KMeans
 import numpy as np
@@ -33,7 +33,6 @@ class CNN_LSTM(nn.Module):
         self.fc = nn.Linear(lstm_hidden_dim, num_classes)
         self.softmax = nn.Softmax(dim=1)
     
-
     def forward(self, x):
         batch_size, seq_len, c, h, w = x.size()
         cnn_out = []
